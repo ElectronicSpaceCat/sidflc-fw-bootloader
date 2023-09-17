@@ -7,4 +7,4 @@ I modified the bootloader to handle both dfu unboded and bonded scenarios. The b
 The difference between the two linkers in this project (Debug/Prod) is that Debug is compiled without optimization for better debugging.
 
 #### For project structure and required dependencies refer to:
-* https://github.com/ElectronicSpaceCat/hcld-fw-app
+* https://github.com/ElectronicSpaceCat/sidflc-fw-app
