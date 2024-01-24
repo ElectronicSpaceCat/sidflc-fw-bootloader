@@ -155,7 +155,7 @@ int main(void)
     // Configure system LED
     nrf_gpio_cfg_output(PIN_PWR_ON_LED);
     // Turn off system LED
-    nrf_gpio_pin_set(PIN_PWR_ON_LED);
+    nrf_gpio_pin_clear(PIN_PWR_ON_LED);
 
     ret_val = nrf_bootloader_init(dfu_observer);
     APP_ERROR_CHECK(ret_val);

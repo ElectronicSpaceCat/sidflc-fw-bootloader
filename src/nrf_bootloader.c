@@ -131,18 +131,18 @@ static void led_timer_handler(void)
             // If 2x pulses then wait
             if(pulse_count++ > 1){
                 pulse_count = 0;
-                nrf_gpio_pin_set(PIN_PWR_ON_LED);
+                nrf_gpio_pin_clear(PIN_PWR_ON_LED);
                 pulse_state = PULSE_WAIT;
             }
             // Else turn on the pulse
             else{
-                nrf_gpio_pin_clear(PIN_PWR_ON_LED);
+                nrf_gpio_pin_set(PIN_PWR_ON_LED);
                 pulse_state = PULSE_OFF;
             }
             break;
         case PULSE_OFF:
             // Turn off the pulse
-            nrf_gpio_pin_set(PIN_PWR_ON_LED);
+            nrf_gpio_pin_clear(PIN_PWR_ON_LED);
             pulse_state = PULSE_ON;
             break;
         case PULSE_WAIT:
@@ -452,7 +452,7 @@ static bool dfu_pwr_btn_pressed(void) {
                 // Set flag so we don't keep writing to GPREGRET2
                 is_flag_set = true;
                 // Turn on the main LED to indicated the flag was set
-                nrf_gpio_pin_clear(PIN_PWR_ON_LED);
+                nrf_gpio_pin_set(PIN_PWR_ON_LED);
             }
         }
         // Yes - Enter DFU mode
